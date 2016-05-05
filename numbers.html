@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html ng-app>
   <head>
-    <title>Welcome</title>
+    <title>Numbers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
   </head>
   <body>
+
 
 <nav class="navbar navbar-inverse ">
       <div class="container">
@@ -20,25 +22,25 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="numbers.html">Numbers</a></li>
+            <li class="active"><a href="numbers.html">Numbers</a></li>
             <li><a href="math.html">Math</a></li>
-            <li><a href="todo.html">ToDo</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container">
-  
-      <div class="row">
-        <h1>Welcome</h1>
-        <p>This is the welcome page</p>
-      </div>
-
-    </div><!-- /.container -->
-
+    <div>
+      <label>First number:</label>
+      <input type="number" ng-model="num1" />
+      <br />
+      <label>Second number:</label>
+      <input type="number" ng-model="num2" />
+      <hr>
+      <h1>Sum: {{num1 + num2}}</h1>
+      <h1>Product: {{num1 * num2}}</h1>
+    </div>
   </body>
 </html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ToDo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+  </head>
+  <body ng-app="app" ng-controller="MainController as main">
+
+  <nav class="navbar navbar-inverse ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="
+#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="numbers.html">Numbers</a></li>
+            <li><a href="math.html">Math</a></li>
+            <li class="active"><a href="todo.html">ToDo</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <h2>ToDo List</h2>
+    <hr />
+    <form>
+      <h3>New Task:</h3>
+      Name:<input type="text" ng-model="newtask.name" />
+      <input type="submit" ng-click="main.add(newtask)" value="Add Task" />
+    </form>
+    <hr />
+    <ul>
+      <li ng-repeat="task in main.tasks">
+        <input type="checkbox" ng-model="task.done" ng-click="main.delete(task)" />
+        <span ng-hide="task.done">{{task.name}}</span>
+      </li>
+    </ul>
+
+    <!--
+    <div>
+      <label>First number:</label>
+      <input type="number" ng-model="main.num1" />
+      <br />
+      <label>Second number:</label>
+      <input type="number" ng-model="main.num2" />
+      <hr>
+      <h1>Sum: {{main.num1 + main.num2}}</h1>
+      <h1>Product: {{main.num1 * main.num2}}</h1>
+    </div>
+    -->
+  </body>
+</html>
