@@ -1,4 +1,6 @@
-angular.module('app', []).controller("MainController", function() {
+var app = angular.module('app', []);
+
+app.controller("MainController", function() {
     this.num1 = 0;
     this.num2 = 0;
 
@@ -13,6 +15,14 @@ angular.module('app', []).controller("MainController", function() {
         },
         {
             name: "Dinner with boss",
+            done: false
+        },
+        {
+            name: "Email Will about unlocking user add function for github in Jenkins",
+            done: false
+        },
+        {
+            name: "Email Will about enabling plugin configuration in Jenkins",
             done: false
         }
     ];
