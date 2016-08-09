@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <title>Welcome</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   </head>
   <body>
 
@@ -41,5 +42,11 @@
 
     </div><!-- /.container -->
 
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello {{yourName}}!</h1>
+    </div>
   </body>
 </html>

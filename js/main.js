@@ -1,7 +1,7 @@
 $(document).ready(function (){
 
   // create a LatLng object containing the coordinate for the center of the map
-  var latlng = new google.maps.LatLng(-33.86455, 151.209);
+  var latlng = new google.maps.LatLng(38.889450, -77.034879);
 
   // prepare the map properties
   var options = {
@@ -10,7 +10,7 @@ $(document).ready(function (){
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     navigationControl: true,
     mapTypeControl: false,
-    scrollwheel: false,
+    scrollwheel: true,
     disableDoubleClickZoom: true
   };
 
@@ -29,7 +29,7 @@ $(document).ready(function (){
 
   // add information window
   var infowindow = new google.maps.InfoWindow({
-    content:  '<div class="info"><strong>This is my company</strong><br><br>My company address is here<br> 32846 Sydney</div>'
+    content:  '<div class="info"><strong>This is my company</strong><br><br>My company address is here<br> Washington D.C.</div>'
   });  
 });
 

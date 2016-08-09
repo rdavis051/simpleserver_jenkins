@@ -5,6 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body ng-app="app" ng-controller="MainController as main">
 
@@ -39,13 +40,15 @@
     <form>
       <h3>New Task:</h3>
       Name:<input type="text" ng-model="newtask.name" />
-      <input type="submit" ng-click="main.add(newtask)" value="Add Task" />
+      <input type="submit" ng-click="main.add(newtask)" value="Add Task" size="30" placeholder="add new task" />
     </form>
     <hr />
+    <span>{{main.remaining() }} of {{main.tasks.length}} remaining </span>
     <ul>
       <li ng-repeat="task in main.tasks">
-        <input type="checkbox" ng-model="task.done" ng-click="main.delete(task)" />
-        <span ng-hide="task.done">{{task.name}}</span>
+        <input type="checkbox" size="30" ng-model="task.done" ng-click="main.delete(task)" />
+        <!-- <span ng-hide="task.done">{{task.name}}</span> -->
+        <span class="done-{{task.done}}">{{task.name}}</span>
       </li>
     </ul>
 
