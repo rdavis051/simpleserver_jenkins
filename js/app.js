@@ -62,3 +62,25 @@ app.controller("MainController", function() {
       }
     };
 });
+
+app.controller('MinMaxCtrl', function($scope) {
+  $scope.formModel = {};
+});
+
+app.controller('BeerCounter', function($scope, $locale) {
+  $scope.beers = [0, 1, 2, 3, 4, 5, 6];
+  if ($locale.id == 'en-us') {
+    $scope.beerForms = {
+      0: 'no beers',
+      one: '{} beer',
+      other: '{} beers'
+    };
+  } else {
+    $scope.beerForms = {
+      0: 'ziande pivo',
+      one: '{} pivo',
+      few: '{} piva',
+      other: '{} piv'
+    };
+  }
+});
