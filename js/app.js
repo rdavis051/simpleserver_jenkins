@@ -68,21 +68,17 @@ app.controller("MainController", function() {
 app.controller('MinMaxCtrl', function($scope, $http) {
   $scope.formModel = {};
   
-  $scope.onSubmit = function (valid) {
+  $scope.onSubmit = function () {
   
-    if (valid) {
-      console.log("Hey I'm submitted!");
-      console.log($scope.formModel);
-      //send to an api endpoint
-      /*$http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).
-        success(function (data) {
-          console.log(":)")
-        }).error(function(data) {
-          console.log(":(")
-        }); */
-    } else {
-      console.log("Invalid Form!");
-    }
+    console.log("Hey I'm submitted!");
+    console.log($scope.formModel);
+    //send to an api endpoint
+    /*$http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).
+      success(function (data) {
+        console.log(":)")
+      }).error(function(data) {
+        console.log(":(")
+      }); */
   };
 });
 
