@@ -1,4 +1,6 @@
-var app = angular.module('app', []);
+var app = angular.module('app', [
+  'jcs-autoValidate'
+]);
 
 app.controller("MainController", function() {
     this.num1 = 0;
