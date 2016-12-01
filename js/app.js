@@ -2,6 +2,15 @@ var app = angular.module('app', [
   'jcs-autoValidate'
 ]);
 
+app.run(function (defaultErrorMessageResolver) {
+    defaultErrorMessageResolver.getErrorMessages().then(function (errorMessages) {
+      errorMessages['tooYoung'] = 'You must be at least {0} years old to use this site';
+      errorMessages['tooOld'] = 'You must be a max of {0} years old to use this site';
+      errorMessages['badUsername'] = 'Username can only contain numbers and letters and _';
+    });
+  }
+);
+
 app.controller("MainController", function() {
     this.num1 = 0;
     this.num2 = 0;
