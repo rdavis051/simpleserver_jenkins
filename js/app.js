@@ -1,5 +1,6 @@
 var app = angular.module('app', [
-  'jcs-autoValidate'
+  'jcs-autoValidate',
+  'angular-ladda'
 ]);
 
 app.run(function (defaultErrorMessageResolver) {
@@ -76,18 +77,21 @@ app.controller("MainController", function() {
 
 app.controller('MinMaxCtrl', function($scope, $http) {
   $scope.formModel = {};
+  $scope.submitting = false;
   
   $scope.onSubmit = function () {
-  
+    $scope.submitting = true;
     console.log("Hey I'm submitted!");
     console.log($scope.formModel);
     //send to an api endpoint
-    /*$http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).
+    $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).
       success(function (data) {
-        console.log(":)")
+        console.log(":)");
+        $scope.submitting = false;
       }).error(function(data) {
-        console.log(":(")
-      }); */
+        console.log(":(");
+        $scope.submitting = false;
+      });
   };
 });
 
