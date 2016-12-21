@@ -2,10 +2,15 @@
 <html>
   <head>
     <title>ToDo</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="js/app.js"></script>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/bower_components/ladda/dist/ladda-themeless.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.min.js"></script>
+    <script src="bower_components/ladda/dist/spin.min.js" ></script>
+    <script src="bower_components/ladda/dist/ladda.min.js" ></script>
+    <script src="bower_components/angular-ladda/dist/angular-ladda.min.js "></script>
+    <script src="js/app.js"></script>
   </head>
   <body ng-app="app" ng-controller="MainController as main">
 
@@ -30,6 +35,9 @@
             <li><a href="math.html">Math</a></li>
             <li class="active"><a href="todo.html">ToDo</a></li>
             <li><a href="landing.html">Landing</a></li>
+            <li><a href="parallax.html">Parallax</a></li>
+            <li><a href="form1.html">Form1</a></li>
+            <li><a href="form2.html">Form2</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -39,8 +47,8 @@
     <hr />
     <form>
       <h3>New Task:</h3>
-      Name:<input type="text" ng-model="newtask.name" />
-      <input type="submit" ng-click="main.add(newtask)" value="Add Task" size="30" placeholder="add new task" />
+      Name:<input type="text" ng-model="newtask.name" placeholder="add new task" />
+      <input type="submit" ng-click="main.add(newtask)" value="Add Task" size="30" />
     </form>
     <hr />
     <span>{{main.remaining() }} of {{main.tasks.length}} remaining </span>

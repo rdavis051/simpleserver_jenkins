@@ -66,8 +66,9 @@ app.controller("MainController", function() {
 
     this.delete = function(task) {
       console.log("deleting task: " + task.name);
+      console.log("task length: " + this.tasks.length);
       for (var i=0; i < this.tasks.length; i++) {
-        if (this.tasks[i].name === tasks.name) {
+        if (this.tasks[i].name === this.tasks.name) {
           this.tasks.splice(i,1);
           break;
         }
