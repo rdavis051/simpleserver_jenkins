@@ -48,11 +48,15 @@ app.controller("MainController", function() {
     ];
 
     this.remaining = function() {
-      var count = 0;
+      var count = this.tasks.length;
+      var task_complete = 0;
       angular.forEach(this.tasks, function(task) {
-        count =+ task.done ? 0 : 1;
+        //count =+ task.done ? 0 : 1;
+        if (task.done) {
+          task_complete = task_complete + 1;
+        }
       });
-      return count;
+      return count - task_complete;
     };
 
     this.add = function(newtask) {
@@ -66,7 +70,6 @@ app.controller("MainController", function() {
 
     this.delete = function(task) {
       console.log("deleting task: " + task.name);
-      console.log("task length: " + this.tasks.length);
       for (var i=0; i < this.tasks.length; i++) {
         if (this.tasks[i].name === this.tasks.name) {
           this.tasks.splice(i,1);
