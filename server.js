@@ -14,6 +14,7 @@ const mimeTypes = {
 
 const hostname = '0.0.0.0';
 const port = 3090;
+console.log("Port: " + port)
 
 http.createServer(function(req, res){
   var uri = url.parse(req.url).pathname;
