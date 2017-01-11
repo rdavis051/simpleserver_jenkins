@@ -12,6 +12,70 @@ app.run(function (defaultErrorMessageResolver) {
   }
 );
 
+
+app.controller("CustController", function() {
+    this.customers = [
+        {
+            name: "Robert Davis Jr",
+            year: 2016,
+            done: false
+        },
+        {
+            name: "Micheal Jordan",
+            year: 2016,
+            done: false
+        },
+        {
+            name: "Michael Jackson",
+            year: 2017,
+            done: false
+        },
+        {
+            name: "Michael Johnson",
+            year: 2016,
+            done: false
+        },
+        {
+            name: "Mike Tyson",
+            year: 2017,
+            done: false
+        }
+    ];
+
+    this.remaining = function() {
+      var count = this.customers.length;
+      var task_complete = 0;
+      angular.forEach(this.customers, function(customer) {
+        //count =+ task.done ? 0 : 1;
+        if (customer.done) {
+          task_complete = task_complete + 1;
+        }
+      });
+      return count - task_complete;
+    };
+
+    this.add = function(newcustomer) {
+      console.log("adding customer: " + newcustomer.name + " Year: " + newcustomer.year);
+      var task = {};
+      task.name = newcustomer.name;
+      task.year = newcustomer.year
+      task.done = false;
+      this.customers.push(task);
+      newcustomer.name = "";
+      newcustomer.year = ""; 
+    };
+
+    this.delete = function(task) {
+      console.log("deleting task: " + task.name);
+      for (var i=0; i < this.tasks.length; i++) {
+        if (this.tasks[i].name === this.tasks.name) {
+          this.tasks.splice(i,1);
+          break;
+        }
+      }
+    };
+});
+
 app.controller("MainController", function() {
     this.num1 = 0;
     this.num2 = 0;
