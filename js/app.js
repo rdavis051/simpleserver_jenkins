@@ -13,8 +13,19 @@ app.run(function (defaultErrorMessageResolver) {
 );
 
 
-app.controller("CustController", function() {
-    this.customers = [
+app.controller("CustController", function($scope, $http, $window) {
+    
+    $scope.search = "";
+    $scope.selectedIndex = null;
+    $scope.selectedCustomer = null;
+
+    $scope.selectCustomer = function (customer, index) {
+      $scope.selectedIndex = index;
+      $scope.selectedCustomer = customer;
+    };
+    
+    
+    $scope.customers = [
         {
             name: "Robert Davis Jr",
             year: 2016,
@@ -42,7 +53,7 @@ app.controller("CustController", function() {
         }
     ];
 
-    this.remaining = function() {
+    $scope.remaining = function() {
       var count = this.customers.length;
       var task_complete = 0;
       angular.forEach(this.customers, function(customer) {
@@ -54,7 +65,7 @@ app.controller("CustController", function() {
       return count - task_complete;
     };
 
-    this.add = function(newcustomer) {
+    $scope.add = function(newcustomer) {
       console.log("adding customer: " + newcustomer.name + " Year: " + newcustomer.year);
       var task = {};
       task.name = newcustomer.name;
@@ -65,7 +76,7 @@ app.controller("CustController", function() {
       newcustomer.year = ""; 
     };
 
-    this.delete = function(task) {
+    $scope.delete = function(task) {
       console.log("deleting task: " + task.name);
       for (var i=0; i < this.tasks.length; i++) {
         if (this.tasks[i].name === this.tasks.name) {
@@ -143,7 +154,7 @@ app.controller("MainController", function() {
     };
 });
 
-app.controller('MinMaxCtrl', function($scope, $http) {
+app.controller('MinMaxCtrl', function($scope, $http, $window) {
   $scope.formModel = {};
   $scope.submitting = false;
   
@@ -155,6 +166,7 @@ app.controller('MinMaxCtrl', function($scope, $http) {
     $http.post('https://minmax-server.herokuapp.com/register/', $scope.formModel).
       success(function (data) {
         console.log(":)");
+        $window.alert('success :)')
         $scope.submitting = false;
       }).error(function(data) {
         console.log(":(");
