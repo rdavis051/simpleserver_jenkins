@@ -4,9 +4,9 @@ Node Simple Server Project
 Start Server: 
 
 ```
-$ node server.js
+> node server.js
 ```
 or
-
-$ npm start
-
+```
+> npm start
+```
