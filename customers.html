@@ -39,6 +39,7 @@
             <li><a href="form1.html">Form1</a></li>
             <li><a href="form2.html">Form2</a></li>
             <li class="active"><a href="customers.html">Customers</a></li>
+            <li><a href="customers2.html">Customers2</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -63,14 +64,14 @@
         </select>
       </div>
       <div>
-          <input type="submit" ng-click="cust.add(newtask)" value="Add Task" size="30" />
+          <input type="submit" ng-click="add(newtask)" value="Add Task" size="30" />
       </div>
     </form>
     <hr />
-    <span>{{cust.remaining() }} of {{cust.customers.length}} remaining </span>
+    <span>{{remaining() }} of {{customers.length}} remaining </span>
     <ul>
-      <li ng-repeat="customer in cust.customers">
-        <input type="checkbox" size="30" ng-model="customer.done" ng-click="cust.delete(customer)" />
+      <li ng-repeat="customer in customers">
+        <input type="checkbox" size="30" ng-model="customer.done" ng-click="delete(customer)" />
         <!-- <span ng-hide="task.done">{{task.name}}</span> -->
         <span class="done-{{customer.done}}">{{customer.name}} {{customer.year}} </span>
       </li>

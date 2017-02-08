@@ -65,14 +65,14 @@
         </select>
       </div>
       <div>
-          <input type="submit" ng-click="cust.add(newtask)" value="Add Task" size="30" />
+          <input type="submit" ng-click="add(newtask)" value="Add Task" size="30" />
       </div>
     </form>
     <hr />
-    <span>{{cust.remaining() }} of {{cust.customers.length}} remaining </span>
+    <span>{{remaining() }} of {{customers.length}} remaining </span>
     <ul>
       <li ng-repeat="customer in customers">
-        <input type="checkbox" size="30" ng-model="customer.done" ng-click="cust.delete(customer)" />
+        <input type="checkbox" size="30" ng-model="customer.done" ng-click="delete(customer)" />
         <!-- <span ng-hide="task.done">{{task.name}}</span> -->
         <span class="done-{{customer.done}}">{{customer.name}} {{customer.year}} </span>
       </li>
@@ -88,7 +88,7 @@
               <input type="text"
                      class="form-control"
                      id="name"
-                     ng-model"search.$"
+                     ng-model"search.name"
                      placeholder="Search name..."
                   />
             </div>
@@ -108,7 +108,7 @@
             <th >Year</th >
           </tr >
 
-          <tr ng-repeat="customer in customers | orderBy:'name' | filter:search" 
+          <tr ng-repeat="customer in customers | orderBy:'name' | filter:customer.name" 
               ng-style="{
                 'background-color': $index == selectedIndex ? 'lightgray' : ''}"
               ng-click="selectCustomer(customer, $index)">
