@@ -15,7 +15,7 @@ app.run(function (defaultErrorMessageResolver) {
 
 app.controller("CustController", function($scope, $http, $window) {
     
-    $scope.search = "";
+    $scope.search = {};
     $scope.selectedIndex = null;
     $scope.selectedCustomer = null;
 
@@ -28,29 +28,41 @@ app.controller("CustController", function($scope, $http, $window) {
     $scope.customers = [
         {
             name: "Robert Davis Jr",
+            gender: "Male",
             year: 2016,
             done: false
         },
         {
             name: "Micheal Jordan",
+            gender: "Male",
             year: 2016,
             done: false
         },
         {
             name: "Michael Jackson",
+            gender: "Male",
             year: 2017,
             done: false
         },
         {
             name: "Michael Johnson",
+            gender: "Male",
             year: 2016,
             done: false
         },
         {
             name: "Mike Tyson",
+            gender: "Male",
             year: 2017,
             done: false
+        },
+        {
+            name: "Whitney Houston",
+            gender: "Female",
+            year: 2016,
+            done: false
         }
+
     ];
 
     $scope.remaining = function() {
@@ -66,10 +78,11 @@ app.controller("CustController", function($scope, $http, $window) {
     };
 
     $scope.add = function(newcustomer) {
-      console.log("adding customer: " + newcustomer.name + " Year: " + newcustomer.year);
+      console.log("adding customer: " + newcustomer.name + " Year: " + newcustomer.year + " Gender: " + newcustomer.gender);
       var task = {};
       task.name = newcustomer.name;
-      task.year = newcustomer.year
+      task.year = newcustomer.year;
+      task.gender = newcustomer.gender;
       task.done = false;
       this.customers.push(task);
       newcustomer.name = "";

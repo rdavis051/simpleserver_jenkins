@@ -65,6 +65,17 @@
         </select>
       </div>
       <div>
+        <label for="gender">Gender</label>
+        <select type="text"
+               required="required"
+               id="gender"
+               ng-model="newtask.gender">
+               <!-- <option value="" >Please Choose<option> -->
+               <option selected="selected" value="Male">Male</option>
+               <option value="Female">Female</option>
+        </select>
+      </div>
+      <div>
           <input type="submit" ng-click="add(newtask)" value="Add Task" size="30" />
       </div>
     </form>
@@ -88,7 +99,7 @@
               <input type="text"
                      class="form-control"
                      id="name"
-                     ng-model"search.name"
+                     ng-model="search.$"
                      placeholder="Search name..."
                   />
             </div>
@@ -108,7 +119,7 @@
             <th >Year</th >
           </tr >
 
-          <tr ng-repeat="customer in customers | orderBy:'name' | filter:customer.name" 
+          <tr ng-repeat="customer in customers | orderBy:'name' | filter:search" 
               ng-style="{
                 'background-color': $index == selectedIndex ? 'lightgray' : ''}"
               ng-click="selectCustomer(customer, $index)">
@@ -138,10 +149,12 @@
               <dd >{{selectedCustomer.name}}</dd >
               <dt >Year</dt >
               <dd >{{selectedCustomer.year}}</dd >
+              <dt >Gender</dt >
+              <dd >{{selectedCustomer.gender}}</dd >
             </dl>
           </div>
         </div>
-        <pre> {{ search | json}} </pre>
+        <pre>{{ search | json }}</pre>
       </div>
 
     </div>
