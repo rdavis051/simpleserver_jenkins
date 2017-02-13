@@ -33,7 +33,7 @@ app.controller("CustController", function($scope, $http, $window) {
             done: false
         },
         {
-            name: "Micheal Jordan",
+            name: "Michael Jordan",
             gender: "Male",
             year: 2016,
             done: false
